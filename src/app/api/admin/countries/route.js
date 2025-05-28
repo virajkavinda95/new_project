@@ -25,6 +25,7 @@ export async function GET() {
   }
 }
 
+// Post request
 export async function POST(request) {
   const session = await getServerSession(authOptions);
 
