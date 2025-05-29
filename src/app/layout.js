@@ -7,9 +7,10 @@ import { headers } from "next/headers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Travel Blogger - Explore the World",
-  description:
-    "Discover amazing travel destinations and read insightful blogs about cultures around the world.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }) {
