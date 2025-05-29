@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/route";
-import dbConnect from "../../../lib/db";
+// import dbConnect from "../../../lib/db";
 import Country from "../../../models/Country";
 
 export async function GET() {
@@ -11,7 +11,7 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  await dbConnect();
+  // await dbConnect();
 
   try {
     const countries = await Country.find({}).sort({ name: 1 });
@@ -33,7 +33,7 @@ export async function POST(request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  await dbConnect();
+  // await dbConnect();
 
   try {
     const body = await request.json();
