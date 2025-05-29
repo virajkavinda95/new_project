@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import dbConnect from "../../../lib/db";
+// import dbConnect from "../../../lib/db";
 import User from "../../../models/User";
 import bcrypt from "bcryptjs";
 
@@ -13,7 +13,7 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        await dbConnect();
+        // await dbConnect();
 
         const user = await User.findOne({ email: credentials.email });
 
@@ -58,7 +58,7 @@ export const authOptions = {
   pages: {
     signIn: "admin/login",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: "ziearablogger",//process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
